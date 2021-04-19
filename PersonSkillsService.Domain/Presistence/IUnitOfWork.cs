@@ -11,7 +11,6 @@ namespace PersonSkillsService.Domain.Presistence
     public interface IUnitOfWork
     {
         IRepository<Person> PersonRepository { get; }
-        IRepository<Skill> SkillReposutory { get; }
 
         int Commit();
     }

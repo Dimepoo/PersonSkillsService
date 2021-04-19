@@ -17,14 +17,12 @@ namespace PersonSkillsService.Infrastructure.Presistence
 
         public IRepository<Person> PersonRepository { get; set; }
 
-        public IRepository<Skill> SkillReposutory { get; set; }
 
         public UnitOfWork(PersonSkillsContext context)
         {
             _context = context;
 
             PersonRepository = new Repository<Person>(_context);
-            SkillReposutory = new Repository<Skill>(_context);
         }
 
         public int Commit()
