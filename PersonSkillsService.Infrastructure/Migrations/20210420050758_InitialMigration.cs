@@ -2,7 +2,7 @@
 
 namespace PersonSkillsService.Infrastructure.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -62,17 +62,13 @@ namespace PersonSkillsService.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Skill",
                 columns: new[] { "Id", "Level", "Name", "PersonId" },
-                values: new object[] { 1L, (byte)10, "Сила", 1L });
-
-            migrationBuilder.InsertData(
-                table: "Skill",
-                columns: new[] { "Id", "Level", "Name", "PersonId" },
-                values: new object[] { 2L, (byte)15, "Ум", 2L });
-
-            migrationBuilder.InsertData(
-                table: "Skill",
-                columns: new[] { "Id", "Level", "Name", "PersonId" },
-                values: new object[] { 3L, (byte)10, "Хитрость", 3L });
+                values: new object[,]
+                {
+                    { 1L, (byte)10, "Сила", 1L },
+                    { 4L, (byte)12, "Ловкость", 1L },
+                    { 2L, (byte)15, "Ум", 2L },
+                    { 3L, (byte)10, "Хитрость", 3L }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Persons_Name",

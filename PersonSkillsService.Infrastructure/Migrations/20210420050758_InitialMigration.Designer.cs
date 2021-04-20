@@ -9,8 +9,8 @@ using PersonSkillsService.Infrastructure.Presistence;
 namespace PersonSkillsService.Infrastructure.Migrations
 {
     [DbContext(typeof(PersonSkillsContext))]
-    [Migration("20210418173727_NewMigration")]
-    partial class NewMigration
+    [Migration("20210420050758_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -109,6 +109,13 @@ namespace PersonSkillsService.Infrastructure.Migrations
                             Level = (byte)10,
                             Name = "Хитрость",
                             PersonId = 3L
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Level = (byte)12,
+                            Name = "Ловкость",
+                            PersonId = 1L
                         });
                 });
 

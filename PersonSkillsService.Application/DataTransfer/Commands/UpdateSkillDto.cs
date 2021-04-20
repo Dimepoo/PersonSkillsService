@@ -1,17 +1,13 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 
-namespace PersonSkillsService.Application.DataTransfer.Queries
+namespace PersonSkillsService.Application.DataTransfer.Commands
 {
-    public class SkillDto
+    public class UpdateSkillDto
     {
-        [Required]
-        public long Id { get; set; }
         [Required]
         public string Name { get; set; }
         [Required]
         public byte Level { get; set; }
-
-
     }
 }

@@ -3,11 +3,10 @@ using Microsoft.Extensions.Configuration;
 using PersonSkillsService.Domain.Aggregates.Persons;
 using PersonSkillsService.Domain.Aggregates.Skills;
 using PersonSkillsService.Infrastructure.Presistence.Configurations;
-using System.Collections.Generic;
 
 namespace PersonSkillsService.Infrastructure.Presistence
 {
-    sealed class PersonSkillsContext: DbContext
+    public class PersonSkillsContext: DbContext
     {
         private readonly IConfiguration _configuration;
 
@@ -31,19 +30,19 @@ namespace PersonSkillsService.Infrastructure.Presistence
             modelBuilder.Entity<Person>().HasData(
                 new Person[]
                 {
-                    new Person("Виталий") {Id = 1},
-                    new Person("Евгений") {Id = 2 },
-                    new Person("Екатерина") {Id = 3}
+                    new Person{Id = 1, Name = "Виталий", DisplayName="Виталий"},
+                    new Person{Id = 2, Name="Евгений", DisplayName="Евгений" },
+                    new Person{Id = 3, Name="Екатерина", DisplayName="Екатерина"}
 
                 });
 
             modelBuilder.Entity<Skill>().HasData(
                 new Skill[]
                 {
-                    new Skill("Сила", 10) {Id = 1, PersonId = 1 },
-                    new Skill("Ум", 15) {Id = 2, PersonId = 2},
-                    new Skill("Хитрость", 10) {Id = 3, PersonId = 3},
-                    new Skill("Ловкость", 12) {Id = 4, PersonId = 1 },
+                    new Skill{Id = 1, Name= "Сила", PersonId = 1, Level = 10 },
+                    new Skill{Id = 2, Name="Ум", PersonId = 2, Level = 15},
+                    new Skill{ Id = 3, Name = "Хитрость", PersonId = 3, Level = 10 },
+                    new Skill{Id = 4, Name="Ловкость", PersonId = 1, Level = 12 },
                 });
 
 

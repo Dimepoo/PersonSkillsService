@@ -1,16 +1,12 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PersonSkillsService.Application.DataTransfer.Commands;
 using PersonSkillsService.Application.Service;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PersonSkillsService.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase
     {
@@ -21,7 +17,7 @@ namespace PersonSkillsService.Controllers
             _personService = personService;
         }
 
-         // GET: api/<controller>
+         // GET: api/v1/<controller>
         [HttpGet]
         public IActionResult Get()
         {
@@ -34,7 +30,7 @@ namespace PersonSkillsService.Controllers
                 return NotFound();
         }
 
-        // GET api/<PersonController>/5
+        // GET api/v1/<PersonController>/5
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
@@ -46,11 +42,12 @@ namespace PersonSkillsService.Controllers
                 return NotFound();
         }   
 
-        // PUT api/<controller>/5
+        // PUT api/v1/<controller>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] SavePersonDto savePersonDto)
+        public IActionResult Put(int id, [FromBody] UpdatePersonDto updatePersonDto)
         {
-            var personDto = _personService.UpdatePerson(id, savePersonDto);
+            updatePersonDto.Id = id;
+            var personDto = _personService.UpdatePerson(updatePersonDto);
 
             if(personDto != null)
                 return Ok(personDto);
@@ -58,7 +55,7 @@ namespace PersonSkillsService.Controllers
                 return NotFound();
         }
 
-        // POST api/<controller>
+        // POST api/v1/<controller>
         [HttpPost("")]
         public IActionResult Post([FromBody] SavePersonDto savePersonDto)
         {
@@ -66,7 +63,7 @@ namespace PersonSkillsService.Controllers
             return Ok(personDto);
         }
 
-        // DELETE api/<controller>/5
+        // DELETE api/v1/<controller>/5
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
