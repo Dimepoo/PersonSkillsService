@@ -9,6 +9,9 @@ using PersonSkillsService.Application;
 
 namespace PersonSkillsService
 {
+    /// <summary>
+    /// Класс конфигурации приложения в плоскости обработки входящих запросов
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)

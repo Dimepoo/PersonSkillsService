@@ -3,6 +3,9 @@ using Microsoft.Extensions.Hosting;
 
 namespace PersonSkillsService
 {
+    /// <summary>
+    /// Класс - точка входа приложения
+    /// </summary>
     public class Program
     {
         public static void Main(string[] args)

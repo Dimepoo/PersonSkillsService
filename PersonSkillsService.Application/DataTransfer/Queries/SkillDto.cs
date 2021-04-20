@@ -3,6 +3,10 @@
 
 namespace PersonSkillsService.Application.DataTransfer.Queries
 {
+    /// <summary>
+    /// Data Transfer Object - специальная моделей для передачи данных
+    /// В данном случае - для считывания данных о навыках
+    /// </summary>
     public class SkillDto
     {
         [Required]

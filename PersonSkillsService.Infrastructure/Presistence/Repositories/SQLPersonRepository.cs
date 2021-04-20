@@ -7,6 +7,9 @@ using System.Linq;
 
 namespace PersonSkillsService.Infrastructure.Presistence.Repositories
 {
+    /// <summary>
+    /// Метод, реализующий класс для работы с базой MS SQL 
+    /// </summary>
     public class SQLPersonRepository: IRepository<Person>
     {
         private PersonSkillsContext Context;

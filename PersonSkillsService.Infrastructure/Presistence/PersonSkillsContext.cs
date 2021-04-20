@@ -6,6 +6,10 @@ using PersonSkillsService.Infrastructure.Presistence.Configurations;
 
 namespace PersonSkillsService.Infrastructure.Presistence
 {
+    /// <summary>
+    /// Класс, определяющий контекст данных,
+    /// используемый для взаимодействия с БД
+    /// </summary>
     public class PersonSkillsContext: DbContext
     {
         private readonly IConfiguration _configuration;

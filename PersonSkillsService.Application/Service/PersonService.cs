@@ -11,6 +11,10 @@ using System.Linq;
 
 namespace PersonSkillsService.Application.Service
 {
+    /// <summary>
+    /// Класс сервиса, инкапсулирующего методы для обработки запросов
+    /// с учетом  Data Transfer Object - специальных моделей для передачи данных
+    /// </summary>
     public class PersonService : IPersonService
     {
         private readonly IMapper _mapper;

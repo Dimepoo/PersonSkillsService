@@ -6,6 +6,9 @@ using PersonSkillsService.Domain.Aggregates.Skills;
 
 namespace PersonSkillsService.Application
 {
+    /// <summary>
+    /// Класс, позволяющий проецировать одну модель на другую 
+    /// </summary>
     public class MapperProfile : Profile
     {
         public MapperProfile()

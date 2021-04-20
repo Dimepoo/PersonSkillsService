@@ -6,6 +6,10 @@ using PersonSkillsService.Application.Service;
 
 namespace PersonSkillsService.Controllers
 {
+    /// <summary>
+    /// Класс контроллеров, для получения ввода пользователя, его обработки
+    /// и отправки обратно результатов обработки
+    /// </summary>
     [Route("api/v1/[controller]")]
     [ApiController]
     public class PersonController : ControllerBase

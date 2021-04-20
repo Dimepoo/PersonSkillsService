@@ -4,6 +4,9 @@ using System.Collections.Generic;
 
 namespace PersonSkillsService.Domain.Aggregates.Persons
 {
+    /// <summary>
+    /// Модель сущности "Личность"
+    /// </summary>
     public class Person
     {
         public long Id { get; set; }
