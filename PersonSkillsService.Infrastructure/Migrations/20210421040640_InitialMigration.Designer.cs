@@ -9,7 +9,7 @@ using PersonSkillsService.Infrastructure.Presistence;
 namespace PersonSkillsService.Infrastructure.Migrations
 {
     [DbContext(typeof(PersonSkillsContext))]
-    [Migration("20210420050758_InitialMigration")]
+    [Migration("20210421040640_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -44,26 +44,6 @@ namespace PersonSkillsService.Infrastructure.Migrations
                         .IsUnique();
 
                     b.ToTable("Persons");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            DisplayName = "Виталий",
-                            Name = "Виталий"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            DisplayName = "Евгений",
-                            Name = "Евгений"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            DisplayName = "Екатерина",
-                            Name = "Екатерина"
-                        });
                 });
 
             modelBuilder.Entity("PersonSkillsService.Domain.Aggregates.Skills.Skill", b =>
@@ -87,36 +67,6 @@ namespace PersonSkillsService.Infrastructure.Migrations
                     b.HasIndex("PersonId");
 
                     b.ToTable("Skill");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Level = (byte)10,
-                            Name = "Сила",
-                            PersonId = 1L
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Level = (byte)15,
-                            Name = "Ум",
-                            PersonId = 2L
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Level = (byte)10,
-                            Name = "Хитрость",
-                            PersonId = 3L
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            Level = (byte)12,
-                            Name = "Ловкость",
-                            PersonId = 1L
-                        });
                 });
 
             modelBuilder.Entity("PersonSkillsService.Domain.Aggregates.Skills.Skill", b =>

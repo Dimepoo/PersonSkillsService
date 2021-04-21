@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Configuration;
 using PersonSkillsService.Domain.Aggregates.Persons;
 using PersonSkillsService.Domain.Aggregates.Skills;
+using PersonSkillsService.Infrastructure.Migrations;
 using PersonSkillsService.Infrastructure.Presistence.Configurations;
 
 namespace PersonSkillsService.Infrastructure.Presistence
@@ -19,18 +20,20 @@ namespace PersonSkillsService.Infrastructure.Presistence
         public PersonSkillsContext(IConfiguration configuration) : base()
         {
             _configuration = configuration;
-
+  
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));
+           
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
 
+            //Тестовые данные
             modelBuilder.Entity<Person>().HasData(
                 new Person[]
                 {

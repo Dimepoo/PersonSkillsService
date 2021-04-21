@@ -47,20 +47,21 @@ namespace PersonSkillsService.Application.Service
                 return person.Select(CreatePersonDto);
         }
 
-        public PersonDto UpdatePerson(UpdatePersonDto updatePersonDto)
+        public PersonDto UpdatePerson(SavePersonDto savePersonDto)
         {
-            var sameNamePerson = _repository.GetByName(updatePersonDto.Name);
+            var sameNamePerson = _repository.GetByName(savePersonDto.Name);
 
-            var sameNamePersonIsExists = sameNamePerson != null && sameNamePerson.Id != updatePersonDto.Id;
+            var sameNamePersonIsExists = sameNamePerson != null && sameNamePerson.Id != savePersonDto.Id;
             if (sameNamePersonIsExists)
                 throw new InvalidOperationException("Database already contains a person with the same name");
 
-            var person = _repository.GetById(updatePersonDto.Id);
+            long id = (long)savePersonDto.Id;
+            var person = _repository.GetById(id);
 
             if (person == null)
                 return null;
 
-            _mapper.Map(updatePersonDto, person);
+            _mapper.Map(savePersonDto, person);
 
             _repository.Update(person);
             _repository.Save();

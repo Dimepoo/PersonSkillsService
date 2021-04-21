@@ -48,23 +48,33 @@ namespace PersonSkillsService.Controllers
 
         // PUT api/v1/<controller>/5
         [HttpPut("{id}")]
-        public IActionResult Put(int id, [FromBody] UpdatePersonDto updatePersonDto)
+        public IActionResult Put(int id, [FromBody] SavePersonDto savePersonDto)
         {
-            updatePersonDto.Id = id;
-            var personDto = _personService.UpdatePerson(updatePersonDto);
+            if (savePersonDto.Id == null)
+            {
+                savePersonDto.Id = id;
+                var personDto = _personService.UpdatePerson(savePersonDto);
 
-            if(personDto != null)
-                return Ok(personDto);
+                if (personDto != null)
+                    return Ok(personDto);
+                else
+                    return NotFound();
+            }
             else
-                return NotFound();
+                return BadRequest();
         }
 
         // POST api/v1/<controller>
         [HttpPost("")]
         public IActionResult Post([FromBody] SavePersonDto savePersonDto)
         {
-            var personDto = _personService.CreatePerson(savePersonDto);
-            return Ok(personDto);
+            if (savePersonDto.Id == null)
+            {
+                var personDto = _personService.CreatePerson(savePersonDto);
+                return Ok(personDto);
+            }
+            else
+                return BadRequest();
         }
 
         // DELETE api/v1/<controller>/5

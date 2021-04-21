@@ -13,7 +13,7 @@ namespace PersonSkillsService.Application.Service
     {
         PersonDto GetPersonById(long personId);
         IEnumerable<PersonDto> GetAllPerson();
-        public PersonDto UpdatePerson(UpdatePersonDto savePersonDto);
+        public PersonDto UpdatePerson(SavePersonDto savePersonDto);
         public bool RemovePerson(long personId);
         public PersonDto CreatePerson(SavePersonDto updatePersonDto);
     }

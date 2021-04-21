@@ -17,8 +17,6 @@ namespace PersonSkillsService.Application
             CreateMap<SavePersonDto, Person>().ConstructUsing(dto => new Person {Name= dto.Name, DisplayName= dto.Name });
             CreateMap<SaveSkillDto, Skill>().ConstructUsing(dto => new Skill { Name = dto.Name, Level = dto.Level });
 
-            CreateMap<UpdatePersonDto, Person>().ConstructUsing(dto => new Person { Name = dto.Name, DisplayName = dto.Name, Id = dto.Id});
-            CreateMap<UpdateSkillDto, Skill>().ConstructUsing(dto => new Skill { Name = dto.Name, Level = dto.Level });
 
             // Domain -> Presentation
             CreateMap<Person, PersonDto>();
